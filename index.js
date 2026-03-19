@@ -1,5 +1,7 @@
 import { getStockData } from "./fakeStockAPI.js";
 
+let prevPrice = null;
+
 setInterval(() => {
   const stockData = getStockData();
   renderStockTicker(stockData);
@@ -18,6 +20,18 @@ function renderStockTicker(stockData) {
   stockDisplaySymbol.textContent = sym;
   stockDisplayPrice.textContent = `$${price}`;
   stockDisplayTime.textContent = time;
+
+  const image = new Image();
+  image.src =
+    price > prevPrice
+      ? `./svg/green.svg`
+      : price < prevPrice
+        ? `./svg/red.svg`
+        : `./svg/grey.svg`;
+  stockDisplayPriceIcon.innerHTML = "";
+  stockDisplayPriceIcon.appendChild(image);
+
+  prevPrice = price;
 }
 
 /*
