@@ -1,3 +1,25 @@
+import { getStockData } from "./fakeStockAPI.js";
+
+setInterval(() => {
+  const stockData = getStockData();
+  renderStockTicker(stockData);
+}, 1500);
+
+function renderStockTicker(stockData) {
+  const stockDisplayName = document.getElementById("name");
+  const stockDisplaySymbol = document.getElementById("symbol");
+  const stockDisplayPrice = document.getElementById("price");
+  const stockDisplayPriceIcon = document.getElementById("price-icon");
+  const stockDisplayTime = document.getElementById("time");
+
+  const { name, sym, price, time } = stockData;
+
+  stockDisplayName.textContent = name;
+  stockDisplaySymbol.textContent = sym;
+  stockDisplayPrice.textContent = `$${price}`;
+  stockDisplayTime.textContent = time;
+}
+
 /*
 App requirements:
  - The app should display the name, symbol, and
@@ -21,11 +43,3 @@ Challenge:
   ⚠️ You will need to write code here in index.js and in
    fakeStockAPI.js.
 */
-
-function renderStockTicker(stockData) {
-  const stockDisplayName = document.getElementById("name");
-  const stockDisplaySymbol = document.getElementById("symbol");
-  const stockDisplayPrice = document.getElementById("price");
-  const stockDisplayPriceIcon = document.getElementById("price-icon");
-  const stockDisplayTime = document.getElementById("time");
-}
