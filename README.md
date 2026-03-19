@@ -1,11 +1,7 @@
-# Getting Started
-Install the dependencies and run the project
-```
-npm install
-npm start
-```
+# Stock Ticker
 
-Head over to https://vitejs.dev/ to learn more about configuring vite
+The app should display the name, symbol, and price of the stock. The price should update every 1.5 seconds. If the price has increased, it should be a green triangle pointing up, if the price has decreased it should be a red triangle pointing down, and if there has been no change it should be a grey triangle pointing to the right.
+
 ## About Scrimba
 
 At Scrimba our goal is to create the best possible coding school at the cost of a gym membership! 💜
